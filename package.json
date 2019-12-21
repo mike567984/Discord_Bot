@@ -1,0 +1,28 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mike567984/Discord_Bot.git"
+  },
+  "keywords": [
+    "bot"
+  ],
+  "author": "Max Xu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mike567984/Discord_Bot/issues"
+  },
+  "homepage": "https://github.com/mike567984/Discord_Bot#readme",
+  "dependencies": {
+    "discord.js": "^11.5.1"
+  }
+}
