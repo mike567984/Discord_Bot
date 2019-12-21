@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/mike567984/Discord_Bot#readme",
   "dependencies": {
-    "discord.js": "^11.5.1"
+    "discord.js": "^11.5.1",
+    "discord.js-commando": "^0.10.0"
   }
 }

@@ -4,14 +4,16 @@ const Discord = require('discord.js');
 //crete a new object aka the bot
 const clbot = new Discord.Client();
 //token for logging into bot
-const token = 'Put your token here';
+const token = 'Insert your token here';
+//need the ! so the bot knows you'r talking to it
+const botstart = "!";
 
 //when bot in ready say this msg
 clbot.on('ready',() => {
 console.log("It's on boy")
 })
-//an array of compliments only for me lul
-let compliments =["Wow Max you'r so cool","wow Max your so handsome","wow Max you'r so Max to the Max","wow Max you'r ok","Wow Max you'r so smart","Eveything I said before was a lie"]
+//an array of compliments now for anyone who asked for it
+let compliments =["you'r so cool","you'r so handsome","End me","you'r ok","you'r so smart","Eveything I said before was a lie"]
 //var to keep track of size of compliments array
 const size = compliments.length;
 //Created this random function to give a diffrent Compliment each time for the Compliment FUnction
@@ -19,18 +21,31 @@ function randoNum(myMin){
 return Math.floor(Math.random() * (size - myMin + 1)) + myMin;
 }
 
-//If you typei in "Compliment in Discord msg it will write a msh"
+//If you type in "Compliment" in discord it will respond with a random compliment from array
 clbot.on('message', msg =>{
-if(msg.content === "Compliment"){
-  msg.reply(compliments[randoNum(0)]);
+// $ plus compliment and not case sensative anymore
+if(msg.content == botstart + "Compliment" || msg.content == botstart + "compliment")
+{
+msg.reply(compliments[randoNum(0)]);
   }
 })
 
+//Created a switch statment for multiple commands but have to start with !
 clbot.on('message', msg =>{
-if(msg.content === "do you like kpop"){
-  msg.reply('Stop talking to me');
+let dprefix = msg.content.substring(botstart.length).split(" ");
+switch(dprefix[0]){
+  case 'test':
+    msg.reply("no U")
+  break;
+
+  case 'Author':
+    msg.channel.send('I was created by' + " " + 'https://github.com/mike567984/Discord_Bot');
+  break;
+
 }
+
 })
+
 
 
 //bot login token
