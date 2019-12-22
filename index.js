@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 //crete a new object aka the bot
 const clbot = new Discord.Client();
 //token for logging into bot
-const token = 'Put your token here';
+const token = 'NjU3NzI0OTIzMTAzNjc0Mzg5.Xf7N4Q.FNc5Lp8CUlSON6vgNPRut_BYBJw';
 //need the ! so the bot knows you'r talking to it
 const botstart = "!";
 
@@ -30,8 +30,9 @@ msg.reply(compliments[randoNum(0)]);
   }
 })
 
-//Created a switch statment for multiple commands but have to start with !
+//Created a switch statment for multiple commands
 clbot.on('message', msg =>{
+//breaks message apart so i can have 2 or more in a command
 let dprefix = msg.content.substring(botstart.length).split(" ");
 switch(dprefix[0]){
   case 'Commands':
@@ -42,10 +43,21 @@ switch(dprefix[0]){
     msg.reply('"!"Compliments = Gives a random Compliment');
     msg.reply('"!"Author = Tells you who the cutest man alive is');
   break;
+//Delete a certain amount of messages
+  case 'delete':
+  case 'Delete':
+  if(dprefix[1]){
+    msg.channel.bulkDelete(dprefix[1]);
+  }else{
+  msg.reply('Specify the number of messages to delete')
+  }
+  break;
 //A fun get to know
   case 'Author':
     msg.channel.send('I was created by' + " " + 'https://github.com/mike567984/Discord_Bot');
   break;
+
+
 }
 })
 
