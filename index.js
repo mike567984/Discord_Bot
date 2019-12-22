@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 //crete a new object aka the bot
 const clbot = new Discord.Client();
 //token for logging into bot
-const token = 'NjU3NzI0OTIzMTAzNjc0Mzg5.Xf5iAA.3PC7YHkqxCpQMqMabOBjd6B38WY';
+const token = 'Put your token here';
 //need the ! so the bot knows you'r talking to it
 const botstart = "!";
 
@@ -42,7 +42,7 @@ switch(dprefix[0]){
     msg.reply('"!"Compliments = Gives a random Compliment');
     msg.reply('"!"Author = Tells you who the cutest man alive is');
   break;
-
+//A fun get to know
   case 'Author':
     msg.channel.send('I was created by' + " " + 'https://github.com/mike567984/Discord_Bot');
   break;
