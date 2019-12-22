@@ -4,7 +4,7 @@ const Discord = require('discord.js');
 //crete a new object aka the bot
 const clbot = new Discord.Client();
 //token for logging into bot
-const token = 'Insert your token here';
+const token = 'NjU3NzI0OTIzMTAzNjc0Mzg5.Xf5iAA.3PC7YHkqxCpQMqMabOBjd6B38WY';
 //need the ! so the bot knows you'r talking to it
 const botstart = "!";
 
@@ -34,16 +34,19 @@ msg.reply(compliments[randoNum(0)]);
 clbot.on('message', msg =>{
 let dprefix = msg.content.substring(botstart.length).split(" ");
 switch(dprefix[0]){
-  case 'test':
-    msg.reply("no U")
+  case 'Commands':
+  case 'commands':
+  case 'Command':
+  case 'command':
+    msg.reply('Every bot command needs an "!"" before it');
+    msg.reply('"!"Compliments = Gives a random Compliment');
+    msg.reply('"!"Author = Tells you who the cutest man alive is');
   break;
 
   case 'Author':
     msg.channel.send('I was created by' + " " + 'https://github.com/mike567984/Discord_Bot');
   break;
-
 }
-
 })
 
 
