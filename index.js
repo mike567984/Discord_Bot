@@ -82,7 +82,7 @@ clbot.on('message', msg => {
         const helper_Pm = new Discord.RichEmbed()
           .setTitle("All avalible commands")
           .setColor(0xF000FF)
-          .setDescription(' Every bot command needs a ! before it\n !Author = tells you about the cutest man alive \n !Compliment = Compliments U\n !profile=Shows your profile \n !image = Show you a random image of a subject (currently set to cute animlas)');
+          .setDescription(' Every bot command needs a ! before it\n !Author = tells you about the cutest man alive \n !Compliment = Compliments U\n !profile=Shows your profile \n !image = Show you a random image of a subject (currently set to Cute Animals)');
         msg.author.send(helper_Pm);
         break;
         //Deletes a certain amount of messages given by user
@@ -98,7 +98,7 @@ clbot.on('message', msg => {
 
       case 'image':
       case 'pic':
-      case 'pictures'
+      case 'pictures':
         image(msg);
         break;
 
