@@ -11,6 +11,8 @@ const pkg = require('./package.json');
 //when bot in ready say this msg
 clbot.on('ready', () => {
   console.log("It's on boy")
+  //Sets bot to do something
+  clbot.user.setActivity('Just Vibing')
 })
 
 
@@ -22,7 +24,7 @@ const size = compliments.length;
 function randoNum(myMin) {
   return Math.floor(Math.random() * (size - myMin + 1)) + myMin;
 }
-
+//lucky Number generator
 function rnum(myMin) {
   return Math.floor(Math.random() * (500 - myMin + 1)) + myMin;
 }
@@ -39,15 +41,23 @@ clbot.on('message', msg => {
 clbot.on('message', msg => {
   const user = msg.author;
   if (!user.bot) {
-    //breaks message apart so i can have 2 or more in a command
+    //breaks message apart so i can have 2 or more args in a command
     let dprefix = msg.content.toLowerCase().substring(botstart.length).split(" ");
+    //Checks to see if msg has ! in front of it
     switch (dprefix[0]) {
-      case 'commands':
-      case 'command':
-        msg.reply(' Every bot command needs a ! before it\n !Author = tells you about the cutest man alive \n !Compliment = Compliments U\n !profile=Shows your profile ');
+        case 'commands':
+        case 'command':
+        case 'help':
+        //Pm's person about all commands avalible
+        const helper_Pm = new Discord.RichEmbed()
+          .setTitle("All avalible commands")
+          .setColor(0xF000FF)
+          .setDescription(' Every bot command needs a ! before it\n !Author = tells you about the cutest man alive \n !Compliment = Compliments U\n !profile=Shows your profile ');
+        msg.author.send(helper_Pm);
         break;
         //Deletes a certain amount of messages given by user
       case 'delete':
+      let Admrole = msg.guild.roles.find(role => role.name === 'Admin');
         if (dprefix[1]) {
           msg.channel.bulkDelete(dprefix[1]);
           msg.channel.send("Deleted " + dprefix[1] + " Messages")
@@ -55,6 +65,9 @@ clbot.on('message', msg => {
           msg.reply('Specify the number of messages to delete')
         }
         break;
+
+
+
         //A fun get to know
       case 'author':
         msg.channel.send('I was created by' + " " + pkg.homepage);
@@ -68,16 +81,16 @@ clbot.on('message', msg => {
           .setThumbnail(user.avatarURL)
           .addField('Your Lucky number is ', rnum(0))
           .setColor('6AB92C')
-          //.setAuthor(user.username, user.avatar_url)
+        //.setAuthor(user.username, user.avatar_url)
         msg.channel.send(profiles);
         break;
 
     }
   }
 })
-//Joins message to those who joined
-clbot.on('guildMemberAdd', member =>{
- member.guild.channels.get('Insert Channel ID').send("Welcome To the server");
+//Sends a message to those who oined the server
+clbot.on('guildMemberAdd', member => {
+  member.guild.channels.get('658808475551531059').send("Welcome To the server");
 })
 
 
