@@ -104,11 +104,11 @@ clbot.on('message', msg => {
         //Deletes a certain amount of messages given by user
       case 'delete':
         let Admrole = msg.guild.roles.find(role => role.name === 'Admin');
-        if (dprefix[1]) {
+        if (dprefix[1] && Admrole) {
           msg.channel.bulkDelete(dprefix[1]);
           msg.channel.send("Deleted " + dprefix[1] + " Messages")
         } else {
-          msg.reply('Specify the number of messages to delete')
+          msg.reply('Specify the number of messages to delete / You do not have the permisstions for this role')
         }
         break;
 
@@ -137,10 +137,10 @@ clbot.on('message', msg => {
         //It's that time of year
       case 'christmas':
         var profiles = new Discord.RichEmbed()
-        .addField('Merry Christmas ', user.username)
-        .setThumbnail(user.avatarURL)
-        .attachFile('https://media.giphy.com/media/R7AW255ijTdV6/giphy.gif')
-        .setColor('EA4630')
+          .addField('Merry Christmas ', user.username)
+          .setThumbnail(user.avatarURL)
+          .attachFile('https://media.giphy.com/media/R7AW255ijTdV6/giphy.gif')
+          .setColor('EA4630')
         msg.channel.send(profiles);
         break;
         //Dance party Gifs
@@ -149,7 +149,10 @@ clbot.on('message', msg => {
         console.log(attachment)
         msg.channel.send("It's dancing Time " + msg.author, attachment);
         break;
-
+        //made this command for a friend
+      case "eyes":
+      msg.channel.send('https://tenor.com/view/monogatari-series-anime-yeah-gif-13897883');
+      break;
     }
   }
 })
